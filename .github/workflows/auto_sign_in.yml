@@ -1,0 +1,31 @@
+name: Auto Sign-in Script
+
+on:
+  schedule:
+    - cron: '0 8 * * *' # UTC time, runs at 08:00 UTC (16:00 Beijing Time)
+  # Optionally, you can add other events like push or workflow_dispatch here if needed.
+
+jobs:
+  auto-sign-in:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x' # Use the latest Python 3 version
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt # Assuming your dependencies are listed in requirements.txt
+
+      - name: Run Auto Sign-in Script
+        env:
+          # If your script needs environment variables (like API keys), set them here.
+          ENV_VAR_NAME: ${{ secrets.ENV_VAR_NAME }}
+        run: |
+          python index.py
