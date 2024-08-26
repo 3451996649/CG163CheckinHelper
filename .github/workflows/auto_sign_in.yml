@@ -1,6 +1,6 @@
 on:
   schedule:
-    - cron: '0 13 * * *' # UTC time, runs at 08:00 UTC (16:00 Beijing Time)
+    - cron: '0 18 * * *' # UTC time, runs at 08:00 UTC (16:00 Beijing Time)
   # Optionally, you can add other events like push or workflow_dispatch here if needed.
 
 jobs:
