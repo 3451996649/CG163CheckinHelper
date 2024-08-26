@@ -1,8 +1,6 @@
-name: Auto Sign-in Script
-
 on:
   schedule:
-    - cron: '0 8 * * *' # UTC time, runs at 08:00 UTC (16:00 Beijing Time)
+    - cron: '0 13 * * *' # UTC time, runs at 08:00 UTC (16:00 Beijing Time)
   # Optionally, you can add other events like push or workflow_dispatch here if needed.
 
 jobs:
@@ -29,3 +27,7 @@ jobs:
           ENV_VAR_NAME: ${{ secrets.ENV_VAR_NAME }}
         run: |
           python index.py
+
+      # 如果您想要测试使用 Node20，请取消注释下面的行
+       - name: Force Actions to use Node20
+         run: echo "FORCE_JAVASCRIPT_ACTIONS_TO_NODE20=true" >> $GITHUB_ENV
