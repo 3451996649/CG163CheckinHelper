@@ -19,7 +19,7 @@ jobs:
       - name: Run Auto Sign-in Script
         env:
           # If your script needs environment variables (like API keys), set them here.
-          ENV_VAR_NAME: ${{ secrets.ENV_VAR_NAME }}
+          cookie: ${{ secrets.COOKIE }}
         run: |
           python cg163-autocheckin.py
 
