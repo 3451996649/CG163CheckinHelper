@@ -1,6 +1,6 @@
 on:
   schedule:
-    - cron: '0 18 * * *' # UTC time, runs at 08:00 UTC (16:00 Beijing Time)
+    - cron: '0 0 * * *' # UTC time, runs at 08:00 UTC (16:00 Beijing Time)
   # Optionally, you can add other events like push or workflow_dispatch here if needed.
 
 jobs:
@@ -20,9 +20,9 @@ jobs:
         env:
           # If your script needs environment variables (like API keys), set them here.
           cookie: ${{ secrets.COOKIE }}
+          authorization: ${{ secrets.AUTHORIZATION }}
         run: |
           python index.py
-          python cg163-autocheckin.py
 
       # 如果您想要测试使用 Node20，请取消注释下面的行
       # - name: Force Actions to use Node20
