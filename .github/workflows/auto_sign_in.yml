@@ -26,7 +26,7 @@ jobs:
           # If your script needs environment variables (like API keys), set them here.
           ENV_VAR_NAME: ${{ secrets.ENV_VAR_NAME }}
         run: |
-          python index.py
+          python cg163-autocheckin.py
 
       # 如果您想要测试使用 Node20，请取消注释下面的行
        - name: Force Actions to use Node20
